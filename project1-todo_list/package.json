@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build-app": "snowpack build"
   },
   "dependencies": {
     "uuid": "^8.3.2"
