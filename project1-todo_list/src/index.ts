@@ -44,6 +44,12 @@ form?.addEventListener("submit", e => {
 function addListItem(task: Task) {
   const item = document.createElement('li');
   const label = document.createElement('label');
+  const deleteButton = document.createElement('button');
+  deleteButton.innerText = "Delete";
+  deleteButton.addEventListener("click", () => {
+    deleteTask(task.id);
+  })
+
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.checked = task.completed;
@@ -58,6 +64,7 @@ function addListItem(task: Task) {
   })
 
   label.append(checkbox, task.title);
+  label.append(deleteButton);
   item.append(label);
   list?.append(item);
 
@@ -74,4 +81,15 @@ function loadTasks(): Task[] {
   const tasksJSON = localStorage.getItem('tasks');
   if (tasksJSON == null) return []
   return JSON.parse(tasksJSON)
+}
+
+function deleteTask(id: string) {
+  const taskIndex = tasks.findIndex(task => task.id === id);
+  tasks.splice(taskIndex, 1);
+  saveTasks();
+
+  if (list == null) return
+
+  list.innerHTML = "";
+  tasks.forEach(addListItem);
 }
