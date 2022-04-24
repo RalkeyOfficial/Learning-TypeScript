@@ -4,11 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Web site created using create-snowpack-app" />
-    <script type="module" src="/dist/index.js"></script>
+    <script defer type="module" src="/dist/index.js"></script>
     <title>todo list</title>
+
+    <style>
+      #list {
+        list-style-type: none;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
-    <ul class="list"></ul>
+    <ul id="list"></ul>
     <form id="new-task-form">
       <input type="text" id="new-task-title">
       <button type="submit">Add</button>
