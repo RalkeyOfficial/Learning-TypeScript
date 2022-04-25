@@ -13,7 +13,7 @@ this is to save you alot of time and so you can use npm packages on your website
 ## installing typescript (without snowpack)
 ###### not recommend for projects that require node packages
 
-first of all instal typeScript globally with:
+first of all install typeScript globally with:
 
 `npm install -g typescript` inside your terminal
 
