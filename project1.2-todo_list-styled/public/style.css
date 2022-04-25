@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+  font-size: large;
+
+  font-family: 'Montserrat', sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #96eda2;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 6em;
+  width: 40%;
+  min-width: 500px;
+  max-width: 800px;
+}
+
+form {
+  background-color: white;
+  padding: .5em;
+  border-radius: 24px;
+  margin-bottom: 6em;
+  
+  display: flex;
+  justify-content: space-between;
+}
+form input {
+  width: 100%;
+  background-color: none;
+  border: none;
+}
+form input:focus {
+  background-color: none;
+  outline: none;
+}
+
+form button {
+  width: 4em;
+  height: 2em;
+  background-color: #96eda2;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 24px;
+}
+
+#list {
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  border-radius: 24px;
+  padding: 1em;
+}
+#list li {
+  margin-bottom: 0.5em;
+  position: relative;
+}
+#list button {
+  float: right;
+  border: none;
+  background-color: rgb(255, 72, 72);
+  color: white;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+}
+#list div {
+  margin-left: 2em;
+}
+
+#list input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+#list span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  border: 2px solid #96eda2;
+  background-color: #eee;
+}
+#list input:checked + span {
+  background-color: #96eda2;
+}

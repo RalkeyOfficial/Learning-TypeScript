@@ -5,27 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Web site created using create-snowpack-app" />
     <script defer type="module" src="/dist/index.js"></script>
+    <link rel="stylesheet" href="/style.css">
     <title>todo list</title>
-
-    <style>
-      #list {
-        list-style-type: none;
-        padding: 0;
-        width: 300px;
-      }
-      #list li {
-        margin-bottom: 0.5em;
-      }
-      #list button {
-        float:right;
-      }
-    </style>
   </head>
   <body>
-    <ul id="list"></ul>
-    <form id="new-task-form">
-      <input type="text" id="new-task-title">
-      <button type="submit">Add</button>
-    </form>
+    <div class="container">
+      <form id="new-task-form">
+        <input autocomplete="off" placeholder="To-Do:" type="text" id="new-task-title">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="list">please enable javascript in your browser to use this web app <br> Here are the <a href="https://www.enable-javascript.com/">
+        instructions on how to enable JavaScript in your web browser</a>.</ul>
+    </div>
   </body>
 </html>

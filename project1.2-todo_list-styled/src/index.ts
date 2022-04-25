@@ -15,7 +15,7 @@ const input = document.querySelector<HTMLInputElement>('#new-task-title');
 
 // load tasks from local storage
 const tasks: Task[] = loadTasks();
-tasks.forEach(addListItem);
+redrawTasksList();
 
 // on submit add task to tasks array
 // and call function to add task on the page
@@ -44,8 +44,9 @@ form?.addEventListener("submit", e => {
 function addListItem(task: Task) {
   const item = document.createElement('li');
   const label = document.createElement('label');
+
   const deleteButton = document.createElement('button');
-  deleteButton.innerText = "Delete";
+  deleteButton.innerText = "X";
   deleteButton.addEventListener("click", () => {
     deleteTask(task.id);
   })
@@ -63,8 +64,11 @@ function addListItem(task: Task) {
     saveTasks();
   })
 
-  label.append(checkbox, task.title);
-  label.append(deleteButton);
+  const div = document.createElement('div');
+  const span = document.createElement('span');
+
+  div.append(task.title.trim(), deleteButton)
+  label.append(checkbox, span, div);
   item.append(label);
   list?.append(item);
 
@@ -87,7 +91,10 @@ function deleteTask(id: string) {
   const taskIndex = tasks.findIndex(task => task.id === id);
   tasks.splice(taskIndex, 1);
   saveTasks();
+  redrawTasksList();
+}
 
+function redrawTasksList() {
   if (list == null) return
 
   list.innerHTML = "";
