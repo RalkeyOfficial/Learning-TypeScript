@@ -10,33 +10,30 @@
     "answer": 1
   },
   {
-    "question": "",
+    "question": "is React a frontend or backend framework/library?",
     "options": [
-      "",
-      "",
-      "",
-      ""
+      "backend",
+      "frontend"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
-    "question": "",
+    "question": "are Java and JavaScript similar?",
     "options": [
-      "",
-      "",
-      "",
-      ""
+      "kind off",
+      "not at all",
+      "yes"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
-    "question": "",
+    "question": "in what language was this website built?",
     "options": [
-      "",
-      "",
-      "",
-      ""
+      "Javascript",
+      "Rust",
+      "C++",
+      "Typescript"
     ],
-    "answer": 1
+    "answer": 4
   }
 ]

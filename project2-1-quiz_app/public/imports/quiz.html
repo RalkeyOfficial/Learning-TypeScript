@@ -11,6 +11,12 @@
       grid-template-columns: auto auto;
       grid-auto-rows: auto;
     }
+    #quiz-form > * {
+      margin: .5em 0
+    }
+    #question-text {
+      margin-bottom: .5em;
+    }
   </style>
 </head>
 <body>
@@ -25,20 +31,20 @@
       </div>
       <div id="question-choices"></div>
     </div>
+    
+    <div id="next-question-container">
+      <button id="submit-question-button">submit</button>
+    </div>
 
     <div id="answer-container">
       <div id="answer-text">
         <p>
           <span style="display: none;" id="answer-text-correct">Correct!</span>
-          <span style="display: none;" id="answer-text-incorrect">Incorrect!</span>
         </p>
       </div>
     </div>
 
-    <div id="next-question-container">
-      <button id="submit-question-button">submit</button>
-    </div>
   </form>
-
+  
 </body>
 </html>
