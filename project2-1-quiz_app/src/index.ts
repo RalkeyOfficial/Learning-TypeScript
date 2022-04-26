@@ -95,7 +95,7 @@ function displayResults(form: JQuery<HTMLFormElement>, questionLength: number) {
   const percentage = isWhatPercentOf(score, questionLength);
   console.log(`${percentage}`);
 
-  form.append(`<h2>You got ${score} out of ${questionLength} questions correct with a percentage of ${percentage}%</h2>`);
+  form.append(`<h3>You got ${score} out of ${questionLength} questions correct with a percentage of ${percentage}%</h2>`);
 
   switch (true) {
     case percentage >= 80:
@@ -108,8 +108,10 @@ function displayResults(form: JQuery<HTMLFormElement>, questionLength: number) {
       form.append(`<p>You should start learning again</p>`);
       break;
     case percentage >= 20:
-      form.append(`<p>Just retire...</p>`);
+      form.append(`<p>You are a failure</p>`);
       break;
+    case percentage >= 0:
+      form.append(`<p>Just retire</p>`);
   }
 }
 
