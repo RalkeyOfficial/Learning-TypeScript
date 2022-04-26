@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is the correct way to write a for loop in JavaScript?",
+    "options": [
+      "for (i = 0; i <= 5; i++) {}",
+      "for (const i = 0; i < 10; i++) {}",
+      "for (let i = 0, i < 10, i++) {}",
+      "for (i = 0; i++; i < 5) {}"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the correct way to write a for loop in JavaScript?",
+    "options": [
+      "for (i = 0; i <= 5; i++) {}",
+      "for (const i = 0; i < 10; i++) {}",
+      "for (let i = 0, i < 10, i++) {}",
+      "for (i = 0; i++; i < 5) {}"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the correct way to write a for loop in JavaScript?",
+    "options": [
+      "for (i = 0; i <= 5; i++) {}",
+      "for (const i = 0; i < 10; i++) {}",
+      "for (let i = 0, i < 10, i++) {}",
+      "for (i = 0; i++; i < 5) {}"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the correct way to write a for loop in JavaScript?",
+    "options": [
+      "for (i = 0; i <= 5; i++) {}",
+      "for (const i = 0; i < 10; i++) {}",
+      "for (let i = 0, i < 10, i++) {}",
+      "for (i = 0; i++; i < 5) {}"
+    ],
+    "answer": 1
+  }
+]
