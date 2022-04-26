@@ -1,10 +1,12 @@
-import $, { isEmptyObject } from 'jquery';
+import $ from 'jquery';
 
 type Questions = [{
     "question": string;
     "options": [string];
-    "correctAnswer": number;
+    "answer": number;
 }];
+
+const score = [0, 0];
 
 // load the window into the HTML document
 (function loadWindow() {
@@ -18,7 +20,11 @@ type Questions = [{
 
 // Display the Question on the page
 function loadQuestion(questions: Questions, questionNumber: number) {
-  console.log("Question: " + questionNumber);
+  // Elements to be used
+  const form = $('#quiz-form') as JQuery<HTMLFormElement>;
+  const questionNumberElement = $('#question-number') as JQuery<HTMLSpanElement>;
+  const questiontextElement = $('#question-text-content-text') as JQuery<HTMLSpanElement>;
+  const questionAnswersElement = $('#question-choices') as JQuery<HTMLDivElement>;
 
   // if the question number is greater than the length of the questions array
   // quit the quiz and display the results
@@ -27,14 +33,38 @@ function loadQuestion(questions: Questions, questionNumber: number) {
     displayResults();
     return;
   }
-
+  
+  console.log("Question: " + questionNumber);
   console.log('Displaying question...');
   
-  $('#question-number').text(`#${questionNumber + 1}, `);
-  $('#question-text-content-text').text(questions[questionNumber].question);
+  questionNumberElement.text(`#${questionNumber + 1}, `);
+  questiontextElement.text(questions[questionNumber].question);
 
+  questionAnswersElement.empty()
   questions[questionNumber].options.forEach((option, index) => {
-    $('#question-choices').append(`<div> <input type="radio" id="answer-${index}" name="question"> <label for="answer-${index}">${option}</label> </div>`);
+    questionAnswersElement.append(`<div> <input type="radio" id="answer-${index}" name="question"> <label for="answer-${index}">${option}</label> </div>`);
+  });
+
+  // on click of the submit button
+  // run checks for valid awnser
+  // and submit awnser into the score array
+  $('#submit-question-button').on('click', (e) => {
+    e.preventDefault();
+
+    let selectedAnswer = $('input[name=question]:checked') as JQuery<HTMLInputElement>;
+
+    if (!selectedAnswer || selectedAnswer === null || selectedAnswer === undefined) return
+
+    console.log('Submitting question...');
+
+    const answerNumber: number = parseInt(selectedAnswer.attr('id').split('-')[1]);
+
+    if (answerNumber === questions[questionNumber].answer - 1)
+    score[1]++;
+    else score[0]++;
+
+    $('#submit-question-button').off();
+    loadQuestion(questions, questionNumber + 1);
   });
 }
 
