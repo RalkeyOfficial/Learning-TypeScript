@@ -2,7 +2,7 @@ import $, { isEmptyObject } from 'jquery';
 
 type Questions = [{
     "question": string;
-    "answers": [string];
+    "options": [string];
     "correctAnswer": number;
 }];
 
@@ -12,7 +12,7 @@ type Questions = [{
   $('.window').empty().load('imports/quiz.html');
 
   // get the questions from the JSON and parse it to the loader function
-  $.getJSON("imports/questions.json", (data) => loadQuestion(data, 0));
+  $.getJSON("imports/questions.json", (data) => loadQuestion(shuffleArray(data), 0));
 
 } ())
 
@@ -32,8 +32,30 @@ function loadQuestion(questions: Questions, questionNumber: number) {
   
   $('#question-number').text(`#${questionNumber + 1}, `);
   $('#question-text-content-text').text(questions[questionNumber].question);
+
+  questions[questionNumber].options.forEach((option, index) => {
+    $('#question-choices').append(`<div> <input type="radio" id="answer-${index}" name="question"> <label for="answer-${index}">${option}</label> </div>`);
+  });
 }
 
 function displayResults() {
   console.log('Displaying results...');
+}
+
+function shuffleArray(array: [any]) {
+  let currentIndex: number = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array as [any];
 }
