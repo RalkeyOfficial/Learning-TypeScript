@@ -112,6 +112,7 @@ function hexDecode(){
 methods.on('change', textEncode)
 
 // check if the hex string is a valid hex string
+// this caused so many headaches...
 function identifyEncoding(string: string): string {
   if (/\\x[0-9a-z][0-9a-z]/i.test(string)) return '1'; // matches for \x00, \x01, \x02, etc.
   else if (/^([0-9a-z][0-9a-z] )/i.test(string)) return '2'; // matches for 00 01 02, etc.
