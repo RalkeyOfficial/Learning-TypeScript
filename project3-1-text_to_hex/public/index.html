@@ -7,9 +7,41 @@
     <meta name="description" content="Web site created using create-snowpack-app" />
     <link rel="stylesheet" type="text/css" href="/index.css" />
     <script defer type="module" src="/dist/index.js"></script>
-    <title>Snowpack App</title>
+    <title>Text to Hex (code edition)</title>
   </head>
   <body>
-    
+    <div class="container">
+
+      <header>
+        <h1>Text to Hex</h1>
+        <p>convert text to hex, <br>or convert hex to text.</p>
+      </header>
+
+      <main>
+        <div class="inputs">
+          <div class="input-container">
+            <label for="text-input">Text:</label>
+            <textarea id="text-input" rows="10" cols="50"></textarea>
+          </div>
+
+          <div class="output-container">
+            <label for="hex-output">Hex:</label>
+            <textarea id="hex-output" rows="10" cols="50"></textarea>
+          </div>
+        </div>
+        
+        <div class="method">
+          <label for="method">Choose a method of conversion:</label>
+
+          <select name="method" id="method">
+            <option value="1">method 1: \x[HEX] (recommended)</option>
+            <option value="2">method 2: 1 space</option>
+            <option value="3">method 3: no space</option>
+            <option value="4">method 4: 0x[HEX]</option>
+          </select>
+        </div>
+      </main>
+
+    </div>
   </body>
 </html>
