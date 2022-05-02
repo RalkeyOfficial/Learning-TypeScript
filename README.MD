@@ -26,7 +26,7 @@ once you have made the project run:
 
 `npm --init` to create the package.json file
 
-`tsc --init --module es6 --outdir ./dist --rootdir ./src` 
+`tsc --init --module esnext --outdir ./dist --rootdir ./src` 
 
 to create a .tsconfig file which has the configuration with my prefered settings for the compiler.
 
