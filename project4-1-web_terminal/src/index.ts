@@ -8,6 +8,27 @@ const terminalInputLabelText = $('#terminal-input-label').html() as string;
 const commandHistory: string[] = [];
 let currentCommandIndex = 0;
 
+
+(function() {
+  terminal.append(`<br>`);
+  terminal.append(`████████╗██╗  ██╗██╗     ██╗███╗   ██╗    ██████╗  ██████╗ ██╗   ██╗██╗    ██╗███╗   ███╗ █████╗ <br>`);
+  terminal.append(`╚══██╔══╝██║  ██║██║     ██║████╗  ██║    ██╔══██╗██╔═══██╗██║   ██║██║    ██║████╗ ████║██╔══██╗<br>`);
+  terminal.append(`   ██║   ███████║██║     ██║██╔██╗ ██║    ██║  ██║██║   ██║██║   ██║██║ █╗ ██║██╔████╔██║███████║<br>`);
+  terminal.append(`   ██║   ██╔══██║██║██   ██║██║╚██╗██║    ██║  ██║██║   ██║██║   ██║██║███╗██║██║╚██╔╝██║██╔══██║<br>`);
+  terminal.append(`   ██║   ██║  ██║██║╚█████╔╝██║ ╚████║    ██████╔╝╚██████╔╝╚██████╔╝╚███╔███╔╝██║ ╚═╝ ██║██║  ██║<br>`);
+  terminal.append(`   ╚═╝   ╚═╝  ╚═╝╚═╝ ╚════╝ ╚═╝  ╚═══╝    ╚═════╝  ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝╚═╝  ╚═╝<br>`);
+  terminal.append(`<br><br>`);
+  terminal.append(`Welcome to web terminal 1.0!<br>`);
+  terminal.append(`<br>`);
+  terminal.append(`Hi, I'm Thijn, <br>`);
+  terminal.append(`Student Software Developer at ROC van Flevoland, <br>`);
+  terminal.append(`Fullstack developer with a passion for javascript. <br>`);
+  terminal.append(`<br>`);
+  terminal.append(`type "help" for a list of available commands<br>`);
+  terminal.append(`<br>`);
+})();
+
+
 $(document).on("keydown", (e) => {
   // focus on the command input on any key press
   terminalInput.focus();
