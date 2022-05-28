@@ -17,16 +17,12 @@ $(document).on("keydown", (e) => {
     terminalInput.val(commandHistory[currentCommandIndex]);
 
     // if current command index is not at the top of the history
-    if (currentCommandIndex > 0) {
-      currentCommandIndex--;
-    }
+    if (currentCommandIndex > 0) currentCommandIndex--;
   }
-  
+
   if (e.keyCode === 40) { // key down
     // if current command index is not at the bottom of the history
-    if (commandHistory[currentCommandIndex + 1]) {
-      currentCommandIndex++;
-    }
+    if (commandHistory.length > currentCommandIndex + 1) currentCommandIndex++;
 
     terminalInput.val(commandHistory[currentCommandIndex]);
   }
@@ -52,6 +48,7 @@ terminalInput.on("keypress", (e) => {
   terminalInput.val('');
 
   // execute commands
+  if(inputText === '') return;
   if(inputText === 'help') return showHelp();
   if(inputText === 'clear') return terminal.html('');
   if(inputText === 'command history') return seeHistory();
