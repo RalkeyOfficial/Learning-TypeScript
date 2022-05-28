@@ -1,4 +1,5 @@
 import $ from "jquery";
+import { commands } from "./commands.js";
 
 const container = $('.container') as JQuery<HTMLDivElement>;
 const terminal = $('#terminal-text') as JQuery<HTMLParagraphElement>;
@@ -8,6 +9,7 @@ const terminalInputLabelText = $('#terminal-input-label').html() as string;
 const commandHistory: string[] = [];
 let currentCommandIndex = 0;
 
+const command = new commands(terminal, commandHistory);
 
 (function() {
   terminal.append(`<br>`);
@@ -19,10 +21,6 @@ let currentCommandIndex = 0;
   terminal.append(`   ╚═╝   ╚═╝  ╚═╝╚═╝ ╚════╝ ╚═╝  ╚═══╝    ╚═════╝  ╚═════╝  ╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝╚═╝  ╚═╝<br>`);
   terminal.append(`<br><br>`);
   terminal.append(`Welcome to web terminal 1.0!<br>`);
-  terminal.append(`<br>`);
-  terminal.append(`Hi, I'm Thijn, <br>`);
-  terminal.append(`Student Software Developer at ROC van Flevoland, <br>`);
-  terminal.append(`Fullstack developer with a passion for javascript. <br>`);
   terminal.append(`<br>`);
   terminal.append(`type "help" for a list of available commands<br>`);
   terminal.append(`<br>`);
@@ -70,26 +68,10 @@ terminalInput.on("keypress", (e) => {
 
   // execute commands
   if(inputText === '') return;
-  if(inputText === 'help') return showHelp();
+  if(inputText === 'help') return command.showHelp();
   if(inputText === 'clear') return terminal.html('');
-  if(inputText === 'command history') return seeHistory();
+  if(inputText === 'command history') return command.seeHistory();
+  if(inputText.split(' ')[0] === 'cat') return command.cat(inputText);
 
   terminal.append(`Unkown command "${inputText}", type "help" for list of commands<br>`);
 })
-
-function showHelp() {
-  terminal.append(`<br>Available commands:<br>`);
-  terminal.append(`<br>`);
-  terminal.append(`  help               --    shows this help list<br>`);
-  terminal.append(`  clear              --    clears the terminal<br>`);
-  terminal.append(`  command history    --    see command history<br>`);
-  terminal.append(`<br>`);
-}
-
-function seeHistory() {
-  terminal.append(`<br>`);
-  terminal.append(`Command history:<br>`);
-  terminal.append(`<br>`);
-  terminal.append(`${commandHistory.join('<br>')}<br>`);
-  terminal.append(`<br>`);
-}
