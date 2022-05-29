@@ -35,6 +35,30 @@ export class commands{
   cat(args: string) {
     args = args.slice(4);
 
+    /*
+      listen.. okay..
+      i didnt want to do it like this. i wanted to make this better
+      i wanted to use fs to read the files dynamically.
+
+      but i couldnt use "import fs from 'fs';" or "import * as fs from 'fs';"
+      that was unable to find "fs", and there is no way of importing fs as a module (i searched the whole internet. there is just no way)
+
+      i could only do "const fs = require('fs');"
+      but that would give an error saying require is undefined.
+
+      so i downloaded requirejs
+      implemented it.
+      and it wouldnt work.
+      i could only make it work like this:
+        "<script data-main="/dist/index" src="/js/require.js"></script>"
+
+      but that way "import" wouldnt work anymore because its not a module. and i cant make it a module, that does nothing.
+      and i cant require things such as "Jquery".
+      and i couldnt get both of them to work.
+
+      so i was forced to do this....
+    */
+
     if (args === 'aboutMe.txt') return this.#aboutMe();
     if (args === 'skills.txt') return this.#skills();
     if (args === 'projects.txt') return this.#projects();
