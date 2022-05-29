@@ -1,4 +1,4 @@
-import $ from "jquery";
+import $ from 'jquery';
 import { commands } from "./commands.js";
 
 const container = $('.container') as JQuery<HTMLDivElement>;
@@ -8,6 +8,7 @@ const terminalInputLabelText = $('#terminal-input-label').html() as string;
 
 const commandHistory: string[] = [];
 let currentCommandIndex = 0;
+
 
 const command = new commands(terminal, commandHistory);
 
@@ -71,6 +72,7 @@ terminalInput.on("keypress", (e) => {
   if(inputText === 'help') return command.showHelp();
   if(inputText === 'clear') return terminal.html('');
   if(inputText === 'command history') return command.seeHistory();
+  if(inputText === 'ls') return command.ls();
   if(inputText.split(' ')[0] === 'cat') return command.cat(inputText);
 
   terminal.append(`Unkown command "${inputText}", type "help" for list of commands<br>`);
