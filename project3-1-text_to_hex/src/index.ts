@@ -127,8 +127,8 @@ function Encode(string: string): string[] {
 
   var result = [];
   for (i = 0; i < string.length; i++) {
-      hex = string.charCodeAt(i).toString(16);
-      result.push(hex);
+    hex = string.charCodeAt(i).toString(16);
+    result.push(hex);
   }
 
   return result
